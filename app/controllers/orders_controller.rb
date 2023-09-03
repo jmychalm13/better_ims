@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user
+
   def index
     orders = Order.all
     render json: orders.as_json
@@ -6,8 +8,8 @@ class OrdersController < ApplicationController
 
   def create
     order = Order.create(
-      user_id: params[:user_id],
-      date_placed: params[:date_placed],
+      user_id: current_user.id,
+      date_placed: Time.now,
       date_received: params[:date_received],
     )
     if order.valid?

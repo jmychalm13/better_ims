@@ -48,11 +48,10 @@ DELETE http://localhost:3000/products/1.json
 
 ### order create
 POST http://localhost:3000/orders.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2OTM4NTk0MjN9.LAMHotOfAQAz0hokyRQTnsKXE6dJgfwitizDisZQ74I
 Content-Type: application/json
 
 {
-  "date_placed": "2023-09-02",
-  "user_id": 1,
   "date_received": "2023-09-03",
   "products": [
     {
