@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
 
   resources :products
+
+  get "/orders" => "orders#index"
+
+  post "/orders" => "orders#create"
 end

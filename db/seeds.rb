@@ -1,4 +1,18 @@
 puts "Seeding Started"
+User.create!([
+  {
+    name: "Jane Smith",
+    email: "jane@test.com",
+    password: "password",
+    password_confirmation: "password",
+  },
+  {
+    name: "John Smith",
+    email: "john@test.com",
+    password: "password",
+    password_confirmation: "password",
+  },
+])
 Product.create!([
   {
     product_name: "matcha powder", description: "beverage component",
@@ -64,6 +78,13 @@ Product.create!([
     description: "condiment",
     on_hand: 1.5,
     uom: 1,
+  },
+])
+Order.create!([
+  {
+    date_placed: "2023-08-03",
+    date_received: "2023-08-06",
+    user_id: 1,
   },
 ])
 puts "Seeding complete"

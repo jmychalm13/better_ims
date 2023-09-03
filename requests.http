@@ -45,3 +45,10 @@ Content-Type: application/json
 
 ### destroy action
 DELETE http://localhost:3000/products/1.json
+
+### order create
+POST http://localhost:3000/orders.json
+Content-Type: application/json
+
+### order index
+GET http://localhost:3000/orders.json
