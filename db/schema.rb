@@ -1,4 +1,4 @@
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_011905) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_144218) do
   enable_extension "plpgsql"
 
   create_table "daily_usages", force: :cascade do |t|
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_011905) do
     t.integer "on_hand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "Uom"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,4 +3,8 @@ class ProductsController < ApplicationController
     products = Product.all
     render json: products.as_json
   end
+
+  def create
+    product = Product.create()
+  end
 end
