@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get "/orders" => "orders#index"
 
   post "/orders" => "orders#create"
+
+  patch "/orders/:id" => "orders#update"
 end

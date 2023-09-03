@@ -52,3 +52,11 @@ Content-Type: application/json
 
 ### order index
 GET http://localhost:3000/orders.json
+
+### order update action
+PATCH http://localhost:3000/orders/1.json
+Content-Type: application/json
+
+{
+  "date_received": "2023-09-03"
+}
