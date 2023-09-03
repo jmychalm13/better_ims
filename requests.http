@@ -31,3 +31,6 @@ Content-Type: application/json
   "on_hand": 7,
   "Uom": 6
 }
+
+### show action
+GET http://localhost:3000/products/1.json
