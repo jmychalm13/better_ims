@@ -71,3 +71,11 @@ Content-Type: application/json
   "quantity_shipped": 12,
   "quantity_received": 10
 }
+
+### product_order update action
+PATCH http://localhost:3000/product_orders/1.json
+Content-Type: application/json
+
+{
+  "quantity_received": 4
+}

@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   patch "/orders/:id" => "orders#update"
 
   post "/product_orders" => "product_orders#create"
+
+  patch "/product_orders/:id" => "product_orders#update"
 end
