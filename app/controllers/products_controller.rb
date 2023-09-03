@@ -5,6 +5,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create()
+    product = Product.create(
+      product_name: params["product_name"],
+      description: params["description"],
+      on_hand: params["on_hand"],
+      Uom: params["Uom"],
+    )
+
+    render json: product.as_json
   end
 end

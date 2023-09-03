@@ -20,3 +20,14 @@ Content-Type: application/json
 
 ### product index
 GET http://localhost:3000/products.json
+
+### product create
+POST http://localhost:3000/products.json
+Content-Type: application/json
+
+{
+  "product_name": "mocha powder",
+  "description": "beverage component",
+  "on_hand": 7,
+  "Uom": 6
+}
