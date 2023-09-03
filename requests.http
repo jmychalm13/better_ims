@@ -50,6 +50,26 @@ DELETE http://localhost:3000/products/1.json
 POST http://localhost:3000/orders.json
 Content-Type: application/json
 
+{
+  "date_placed": "2023-09-02",
+  "user_id": 1,
+  "date_received": "2023-09-03",
+  "products": [
+    {
+      "product_id": 1,
+      "quantity_shipped": 4
+    },
+    {
+      "product_id": 2,
+      "quantity_shipped": 6
+    },
+    {
+      "product_id": 3,
+      "quantity_shipped": 3
+    }
+  ]
+}
+
 ### order index
 GET http://localhost:3000/orders.json
 

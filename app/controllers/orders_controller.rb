@@ -13,6 +13,13 @@ class OrdersController < ApplicationController
     if order.valid?
       # create product orders instances with a product_id, quantity_shipped, order_id (from this order) productOrder.create
       # inside loop
+      params[:products].each do |product|
+        ProductOrder.create(
+          product_id: product[:product_id],
+          quantity_shipped: product[:quantity_shipped],
+          order_id: order.id,
+        )
+      end
       render json: order.as_json
     else
       render json: { errors: order.errors.full_messages }, status: 422
