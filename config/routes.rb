@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   post "/product_orders" => "product_orders#create"
 
   patch "/product_orders/:id" => "product_orders#update"
+
+  post "/daily_usages" => "daily_usage#create"
+
+  patch "/daily_usages/:id" => "daily_usage#update"
 end

@@ -1,0 +1,2 @@
+module DailyUsageHelper
+end

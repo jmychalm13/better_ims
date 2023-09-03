@@ -79,3 +79,22 @@ Content-Type: application/json
 {
   "quantity_received": 4
 }
+
+### daily_usage create
+POST http://localhost:3000/daily_usages.json
+Content-Type: application/json
+
+{
+  "product_id": 2,
+  "quantity_used": 4,
+  "quantity_projected": 6,
+  "date": "2023-09-03"
+}
+
+### daily_usage update action
+PATCH http://localhost:3000/daily_usages/1.json
+Content-Type: application/json
+
+{
+  "quantity_used": 4
+}
