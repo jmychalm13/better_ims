@@ -10,7 +10,13 @@ class OrdersController < ApplicationController
       date_placed: params[:date_placed],
       date_received: params[:date_received],
     )
-    render json: order.as_json
+    if order.valid?
+      # create product orders instances with a product_id, quantity_shipped, order_id (from this order) productOrder.create
+      # inside loop
+      render json: order.as_json
+    else
+      render json: { errors: order.errors.full_messages }, status: 422
+    end
   end
 
   def show

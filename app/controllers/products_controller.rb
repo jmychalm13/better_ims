@@ -12,7 +12,11 @@ class ProductsController < ApplicationController
       Uom: params["Uom"],
     )
 
-    render json: product.as_json
+    if product
+      render json: product.as_json
+    else
+      render json: { errors: product.errors.full_messages }, status: 422
+    end
   end
 
   def show

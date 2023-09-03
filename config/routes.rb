@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post "/orders" => "orders#create"
 
   patch "/orders/:id" => "orders#update"
+
+  post "/product_orders" => "product_orders#create"
 end

@@ -60,3 +60,14 @@ Content-Type: application/json
 {
   "date_received": "2023-09-03"
 }
+
+### product_order create
+POST http://localhost:3000/product_orders.json
+Content-Type: application/json
+
+{
+  "product_id": 2,
+  "order_id": 1,
+  "quantity_shipped": 12,
+  "quantity_received": 10
+}
