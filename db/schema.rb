@@ -1,9 +1,11 @@
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_144218) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_011905) do
   enable_extension "plpgsql"
 
   create_table "daily_usages", force: :cascade do |t|
     t.integer "product_id"
     t.integer "quantity_used"
+    t.integer "quantity_projected"
+    t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -18,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_144218) do
   create_table "orders", force: :cascade do |t|
     t.datetime "date_placed"
     t.integer "user_id"
+    t.datetime "date_received"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,9 +38,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_144218) do
     t.string "product_name"
     t.string "description"
     t.integer "on_hand"
+    t.integer "uom"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "Uom"
   end
 
   create_table "users", force: :cascade do |t|
