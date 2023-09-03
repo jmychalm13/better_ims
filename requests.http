@@ -42,3 +42,6 @@ Content-Type: application/json
 {
   "Uom": 4
 }
+
+### destroy action
+DELETE http://localhost:3000/products/1.json
