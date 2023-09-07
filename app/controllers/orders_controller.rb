@@ -7,22 +7,21 @@ class OrdersController < ApplicationController
   end
 
   def create
+    pp params[:order]
     order = Order.create(
       user_id: current_user.id,
       date_placed: Time.now,
-      date_received: params[:date_received],
     )
     if order.valid?
-      # create product orders instances with a product_id, quantity_shipped, order_id (from this order) productOrder.create
-      # inside loop
-      params[:products].each do |product|
+      params[:order].each { |id, quantity|
         ProductOrder.create(
-          product_id: product[:product_id],
-          quantity_shipped: product[:quantity_shipped],
+          product_id: id,
+          quantity_shipped: quantity,
           order_id: order.id,
         )
-      end
+      }
       render json: order.as_json
+      # render jbuilder partial that you pass productOrder and products
     else
       render json: { errors: order.errors.full_messages }, status: 422
     end
