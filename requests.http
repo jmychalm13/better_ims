@@ -14,7 +14,7 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
+  "email": "jane@test.com",
   "password": "password"
 }
 
@@ -48,7 +48,7 @@ DELETE http://localhost:3000/products/1.json
 
 ### order create
 POST http://localhost:3000/orders.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2OTM4NTk0MjN9.LAMHotOfAQAz0hokyRQTnsKXE6dJgfwitizDisZQ74I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2OTQxMzQ3ODR9.SmcsN4POAWhVQkeH68iQoZZd4EoOpxwWoS-JO4gcRrs
 Content-Type: application/json
 
 {
@@ -70,7 +70,8 @@ Content-Type: application/json
 }
 
 ### order index
-GET http://localhost:3000/orders.json
+GET http://localhost:3000/orders/11.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2OTQxMzQ3ODR9.SmcsN4POAWhVQkeH68iQoZZd4EoOpxwWoS-JO4gcRrs
 
 ### order update action
 PATCH http://localhost:3000/orders/1.json

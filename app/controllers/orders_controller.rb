@@ -2,8 +2,8 @@ class OrdersController < ApplicationController
   before_action :authenticate_user
 
   def index
-    orders = Order.all
-    render json: orders.as_json
+    @orders = Order.all
+    render :index
   end
 
   def create
@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
         )
       }
       render json: order.as_json
+      # render :show
       # render jbuilder partial that you pass productOrder and products
     else
       render json: { errors: order.errors.full_messages }, status: 422
@@ -28,8 +29,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    order = Order.find(params[:id])
-    render json: order.as_json
+    @order = Order.find(params[:id])
+    render :show
   end
 
   def update
