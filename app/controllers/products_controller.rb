@@ -20,8 +20,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    product = Product.find_by(id: params[:id])
-    render json: product.as_json
+    @product = Product.find_by(id: params[:id])
+    render :show
   end
 
   def update

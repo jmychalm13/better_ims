@@ -1,4 +1,4 @@
-class DailyUsageController < ApplicationController
+class DailyUsagesController < ApplicationController
   def create
     daily_usage = DailyUsage.create(
       product_id: params[:product_id],
@@ -11,6 +11,11 @@ class DailyUsageController < ApplicationController
     else
       render json: { errors: order.errors.full_messages }, status: 422
     end
+  end
+
+  def index
+    @daily_usages = DailyUsage.all
+    render :index
   end
 
   def update

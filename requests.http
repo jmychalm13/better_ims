@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ### show action
-GET http://localhost:3000/products/1.json
+GET http://localhost:3000/products/2.json
 
 ### update action
 PATCH http://localhost:3000/products/2.json
@@ -118,3 +118,6 @@ Content-Type: application/json
 {
   "quantity_used": 4
 }
+
+### show action
+GET http://localhost:3000/daily_usages.json
