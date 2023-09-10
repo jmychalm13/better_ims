@@ -25,4 +25,10 @@ class ProductOrdersController < ApplicationController
       render json: { errors: order.errors.full_messages }, status: 422
     end
   end
+
+  def show
+    @product_order = ProductOrder.find(params[:id])
+
+    render :show
+  end
 end

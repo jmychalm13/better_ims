@@ -1,6 +1,6 @@
 json.id order.id
-json.date_placed order.date_placed
-json.date_received order.date_received
+json.friendly_date_placed order.friendly_date_placed
+json.friendly_date_received order.friendly_date_received
 json.user order.user
 json.products order.products
 json.product_orders order.product_orders

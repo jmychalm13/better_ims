@@ -120,4 +120,4 @@ Content-Type: application/json
 }
 
 ### show action
-GET http://localhost:3000/daily_usages.json
+GET http://localhost:3000/product_orders/1.json
