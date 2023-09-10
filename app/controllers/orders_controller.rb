@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user
 
+  require 'date'
+
   def index
     @orders = Order.all
     render :index
@@ -35,9 +37,18 @@ class OrdersController < ApplicationController
 
   def update
     order = Order.find(params[:id])
+    date = DateTime.now()
+    
     order.update(
-      date_received: params[:date_received] || order.date_received,
+      # change this to be today's date
+      date_received: date || order.date_received,
     )
+    # use a model method .where to pull back all productOrders with that order_id match params.id
+    # loop through productOrders that are returned and set the received quantity based on the params
+        # this will be an hash where the key is the productOrder ID and value is quantity received
     render json: order.as_json
+    pp "Here I am !!!!!!!!!!!"
+    pp date
+    pp params
   end
 end
