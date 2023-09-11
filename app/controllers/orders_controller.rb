@@ -43,9 +43,7 @@ class OrdersController < ApplicationController
       # change this to be today's date
       date_received: date || order.date_received,
     )
-    # use a model method .where to pull back all productOrders with that order_id match params.id
     product_orders = ProductOrder.where(order_id: params[:id])
-    # loop through productOrders that are returned and set the received quantity based on the params
     product_orders.each do |product_order|
       pp product_order
       pp params[product_order.id.to_s]
