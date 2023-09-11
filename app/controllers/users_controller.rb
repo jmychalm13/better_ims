@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     )
     if user.save
       render json: { message: "User created successfully" }, status: :created
+      UserMailer.with(user: @user).welcome_email.deliver_later
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
