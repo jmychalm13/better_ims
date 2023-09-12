@@ -1,6 +1,5 @@
 class DailyUsagesController < ApplicationController
   def create
-    # pp params[:products]
     products = params[:products]
     products.each do |id, v|
       DailyUsage.create(
@@ -13,18 +12,6 @@ class DailyUsagesController < ApplicationController
          on_hand: quantity,
       )
     end
-
-    # daily_usage = DailyUsage.create(
-    #   product_id: params[:product_id],
-    #   quantity_used: params[:quantity_used],
-    #   quantity_projected: params[:quantity_projected],
-    #   date: params[:date],
-    # )
-    # if daily_usage.valid?
-    #   render json: daily_usage.as_json
-    # else
-    #   render json: { errors: order.errors.full_messages }, status: 422
-    # end
   end
 
   def index
