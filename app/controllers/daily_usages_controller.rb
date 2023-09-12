@@ -1,16 +1,30 @@
 class DailyUsagesController < ApplicationController
   def create
-    daily_usage = DailyUsage.create(
-      product_id: params[:product_id],
-      quantity_used: params[:quantity_used],
-      quantity_projected: params[:quantity_projected],
-      date: params[:date],
-    )
-    if daily_usage.valid?
-      render json: daily_usage.as_json
-    else
-      render json: { errors: order.errors.full_messages }, status: 422
+    # pp params[:products]
+    products = params[:products]
+    products.each do |id, v|
+      DailyUsage.create(
+        product_id: id,
+        quantity_used: v,
+      )
+      product = Product.find(id)
+      quantity = product.on_hand.to_i - v.to_i
+      product.update(
+         on_hand: quantity,
+      )
     end
+
+    # daily_usage = DailyUsage.create(
+    #   product_id: params[:product_id],
+    #   quantity_used: params[:quantity_used],
+    #   quantity_projected: params[:quantity_projected],
+    #   date: params[:date],
+    # )
+    # if daily_usage.valid?
+    #   render json: daily_usage.as_json
+    # else
+    #   render json: { errors: order.errors.full_messages }, status: 422
+    # end
   end
 
   def index

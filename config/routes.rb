@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   post "/daily_usages" => "daily_usages#create"
 
-  patch "/daily_usages/:id" => "daily_usages#update"
+  patch "/daily_usages" => "daily_usages#update"
 
   get "/daily_usages" => "daily_usages#index"
 end
