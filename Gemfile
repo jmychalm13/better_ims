@@ -75,6 +75,8 @@ group :test do
   gem "webdrivers"
 end
 
+gem 'bundler', '~> 2.4', '>= 2.4.19'
+
 gem 'whenever', require: false
 
 gem "rack-cors"
