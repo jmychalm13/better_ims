@@ -18,3 +18,14 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+env :PATH, ENV["PATH"]
+
+set :output, "log/cron.log"
+
+set :runner_command, "rails runner"
+
+# every 3.minute do
+#   rake 'sample:test'
+# end
+

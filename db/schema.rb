@@ -1,4 +1,4 @@
-ActiveRecord::Schema[7.0].define(version: 2023_09_01_011905) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_003602) do
   enable_extension "plpgsql"
 
   create_table "daily_usages", force: :cascade do |t|
@@ -6,13 +6,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_01_011905) do
     t.integer "quantity_used"
     t.integer "quantity_projected"
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inventories", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "on_hand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
