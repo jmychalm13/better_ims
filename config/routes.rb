@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   patch "/daily_usages" => "daily_usages#update"
 
   get "/daily_usages" => "daily_usages#index"
+
+  get "/daily_usages/:id" => "daily_usages#show"
 end

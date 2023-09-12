@@ -29,3 +29,7 @@ set :runner_command, "rails runner"
 #   rake 'sample:test'
 # end
 
+# every 1.minutes do
+#   runner "puts 'Hello, world'"
+# end
+

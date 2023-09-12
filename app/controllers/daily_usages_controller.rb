@@ -19,6 +19,11 @@ class DailyUsagesController < ApplicationController
     render :index
   end
 
+  def show
+    @daily_usages = DailyUsage.where(created_at: ..Date.today)   
+    render :show
+  end
+
   def update
     daily_usage = DailyUsage.find(params[:id])
     daily_usage.update(

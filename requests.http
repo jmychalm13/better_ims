@@ -120,4 +120,5 @@ Content-Type: application/json
 }
 
 ### show action
-GET http://localhost:3000/product_orders/1.json
+GET http://localhost:3000/daily_usages.json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2OTQxMzQ3ODR9.SmcsN4POAWhVQkeH68iQoZZd4EoOpxwWoS-JO4gcRrs
