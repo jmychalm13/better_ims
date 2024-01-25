@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
       product_name: params["product_name"],
       description: params["description"],
       on_hand: params["on_hand"],
-      Uom: params["Uom"],
+      uom: params["uom"],
     )
 
     if product
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
       product_name: params[:product_name] || product.product_name,
       description: params[:description] || product.description,
       on_hand: params[:on_hand] || product.on_hand,
-      Uom: params[:Uom] || product.Uom,
+      uom: params[:uom] || product.uom,
     )
     render json: product.as_json
   end
