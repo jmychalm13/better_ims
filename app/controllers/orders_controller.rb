@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    pp params[:order]
     order = Order.create(
       user_id: current_user.id,
       date_placed: Time.now,
