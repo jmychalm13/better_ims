@@ -22,7 +22,7 @@ class ProductOrdersController < ApplicationController
     if product_order.valid?
       render json: product_order.as_json
     else
-      render json: { errors: order.errors.full_messages }, status: 422
+      render json: { errors: product_order.errors.full_messages }, status: 422
     end
   end
 
