@@ -50,7 +50,13 @@ class OrdersController < ApplicationController
         quantity_received: params[product_order.id.to_s]
       )
     end
-        # this will be an hash where the key is the productOrder ID and value is quantity received
+        # this will be a hash where the key is the productOrder ID and value is quantity received
     render json: order.as_json
+  end
+
+  def destroy
+    order = Order.find(params[:id])
+    order.destroy
+    render json: { message: "Order deleted" }
   end
 end

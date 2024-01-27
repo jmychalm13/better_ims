@@ -36,4 +36,34 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/orders/#{Order.first.id}.json", headers: {
+      "Authorization" => "Bearer #{@jwt}"
+    }
+    assert_response 200
+  end
+
+  test "update" do
+    patch "/orders/#{Order.first.id}.json", headers: {
+      "Authorization" => "Bearer #{@jwt}"
+    },
+    params: {
+      date_received: Time.now.strftime("%A, %b %d"),
+    }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    actual_date_received = Time.parse(data["date_received"]).strftime("%A, %b %d")
+    assert_equal Time.now.strftime("%A, %b %d"), actual_date_received
+  end
+
+  test "destroy" do
+    assert_difference "Order.count", -1 do
+      delete "/orders/#{Order.first.id}.json", headers: {
+        "Authorization" => "Bearer #{@jwt}"
+      }
+      assert_response 200
+    end
+  end
 end

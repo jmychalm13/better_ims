@@ -5,13 +5,7 @@ Rails.application.routes.draw do
 
   resources :products
 
-  get "/orders" => "orders#index"
-
-  post "/orders" => "orders#create"
-
-  patch "/orders/:id" => "orders#update"
-  
-  get "/orders/:id" => "orders#show"
+  resources :orders
 
   post "/product_orders" => "product_orders#create"
 
