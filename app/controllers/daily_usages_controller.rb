@@ -3,15 +3,17 @@ class DailyUsagesController < ApplicationController
     products = params[:products]
     products.each do |id, v|
       DailyUsage.create(
+        # should I add .to_i to these variables?
         product_id: id,
         quantity_used: v,
       )
       product = Product.find(id)
-      quantity = product.on_hand.to_i - v.to_i
+      quantity = product.on_hand - v.to_i
       product.update(
          on_hand: quantity,
       )
     end
+    render json: { message: "Created" }
   end
 
   def index
@@ -32,7 +34,7 @@ class DailyUsagesController < ApplicationController
     if daily_usage.valid?
       render json: daily_usage.as_json
     else
-      render json: { errors: order.errors.full_messages }, status: 422
+      render json: { errors: daily_usage.errors.full_messages }, status: 422
     end
   end
 end

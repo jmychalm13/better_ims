@@ -45,17 +45,18 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "update" do
+    time = Time.now.utc.round(0).iso8601(10)
     patch "/orders/#{Order.first.id}.json", headers: {
       "Authorization" => "Bearer #{@jwt}"
     },
     params: {
-      date_received: Time.now.strftime("%A, %b %d"),
+      date_received: time,
     }
     assert_response 200
 
     data = JSON.parse(response.body)
-    actual_date_received = Time.parse(data["date_received"]).strftime("%A, %b %d")
-    assert_equal Time.now.strftime("%A, %b %d"), actual_date_received
+    actual_date_received = Time.parse(data["date_received"]).round(0).iso8601(10)
+    assert_equal time, actual_date_received
   end
 
   test "destroy" do
