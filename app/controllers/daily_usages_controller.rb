@@ -3,7 +3,6 @@ class DailyUsagesController < ApplicationController
     products = params[:products]
     products.each do |id, v|
       DailyUsage.create(
-        # should I add .to_i to these variables?
         product_id: id,
         quantity_used: v,
       )

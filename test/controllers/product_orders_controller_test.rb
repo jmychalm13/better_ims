@@ -34,7 +34,7 @@ class ProductOrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "update" do
-    patch "/product_orders/#{@product_order.id}", params: {
+    patch "/product_orders/#{@product_order.id}.json", params: {
       quantity_received: 0
     }
     assert_response :success
