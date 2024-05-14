@@ -1,4 +1,4 @@
-ActiveRecord::Schema[7.0].define(version: 2023_09_12_003602) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_01_011905) do
   enable_extension "plpgsql"
 
   create_table "daily_usages", force: :cascade do |t|

@@ -44,8 +44,6 @@ class OrdersController < ApplicationController
     )
     product_orders = ProductOrder.where(order_id: params[:id])
     product_orders.each do |product_order|
-      pp product_order
-      pp params[product_order.id.to_s]
       product_order.update(
         quantity_received: params[product_order.id.to_s]
       )
