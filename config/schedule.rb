@@ -19,15 +19,17 @@
 
 # Learn more: http://github.com/javan/whenever
 
-env :PATH, ENV["PATH"]
-
+# env :PATH, ENV["PATH"]
+set :path, "/Users/jessicamoore/Desktop/actualize/better_ims"
 set :output, "log/cron.log"
+set :environment, "development"
+set :bundle_command, "/Users/jessicamoore/.rbenv/shims/bundle"
+job_type :rake, "cd :path && :environment_variable=:environment :bundle_command exec rake :task --silent :output"
+# set :runner_command, "rails runner"
 
-set :runner_command, "rails runner"
-
-# every 3.minute do
-#   rake 'sample:test'
-# end
+every 1.minute do
+  rake 'sample:test'
+end
 
 # every 1.minutes do
 #   runner "puts 'Hello, world'"
